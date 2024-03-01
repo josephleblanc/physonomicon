@@ -1,0 +1,400 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}[2011/08/13]
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{textcomp, gensymb}
+\usepackage{graphicx}
+\graphicspath{ { ./ }}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ includeheadfoot,
+ }
+\pgfplotsset{width=10cm,compat=1.9}
+
+\title{Physonomicon}
+\author{Brasides}
+
+\setlength{\jot}{10pt}
+\numberwithin{equation}{section}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+
+ \section{Derivations for One Dimensional Motion}
+ \subsection{Average velocity $\bar{v}$ vs Instantaneous velocity $v$}
+ \subsubsection{tl;dr}
+ 
+\[
+  \begin{aligned}
+    &\bar{v} = \frac{x_2 - x_1}{t_2 - t_1} & avg\ velocity\\ 
+    &x(t) = At^n & position\ as\ function\ of\ time \\ 
+    & \bar{v} = \frac{x(t_2)-x(t_1)}{t_2 - t_1} & \\
+    & & \\
+    \hline{}\\
+    & Definition\ of\ v(t):
+    & v(t) = \lim_{\Delta t\to0} 
+    \frac{x(t+\Delta t)-x(t)}{\Delta t}  
+    \iff v(t) = \frac{dx}{dt}  \\
+  \end{aligned}
+\]
+Where $A$ is a constant and $n$ is an integer.
+ \subsubsection{Defining $\bar{v}$}
+ Average velocity $\bar{v}$ is defined for position $x_1$ at time
+ $t_1$ and position $x_2$ at time $t_2$:
+ \[
+   \bar{v} = \frac{x_2 - x_1}{t_2 - t_1}
+\]
+Because we may consider the position $x$ to be a function of time, we
+may instead choose to rewrite this as:
+ \[
+    \bar{v} = \frac{x(t_2)-x(t_1)}{t_2 - t_1}
+\]
+Where $x(t) = At^{n} $
+   
+In order to go from $\bar{v}$ to instantaneous velocity $v$, we swap
+in values that are more appropriate for calculus:\par 
+\textit{Let }$t_1 = t$ \textit{ and } $t_2 = t+ \Delta t$\\
+Now we may consider the limit as $\Delta t \to 0$, which we shall
+define as instantaneous velocity $v(t)$:
+ 
+\begin{equation}\label{eq:defnv}
+    v(t) = \lim_{\Delta t\to0} 
+    \frac{x(t+\Delta t)-x(t)}{\Delta t}  
+    \iff v(t) = \frac{dx}{dt}
+    = \frac{d}{dt}x(t)
+  \end{equation}
+Where the function $x(t)$ has the form:
+Where $A$ is a constant and $n$ is an integer.
+
+ \subsection{Average acceleration $\bar{a}$ vs Instantaneous
+   acceleration $a$}
+   \subsubsection{tl;dr}
+\[
+  \begin{aligned}
+    &\bar{a} = \frac{v_2 - v_1}{t_2 - t_1} & avg\ velocity\\ 
+    &v(t) = \frac{dx}{dt} & inst.\ velocity\ as\ function\ of\ time \\ 
+    & \bar{a} = \frac{v(t_2)-v(t_1)}{t_2 - t_1} & \\
+    & & \\
+    \hline{}\\
+    & Definition\ of\ a(t):
+    & a(t) = \lim_{\Delta t\to0} 
+    \frac{v(t+\Delta t)-v(t)}{\Delta t}  
+    \iff a(t) = \frac{d}{dt}v(t) = \frac{d^2x}{dt^2}  \\
+  \end{aligned}
+\]
+   \subsubsection{Defining average velocity $\bar{a}$}
+   The definition of acceleration has a similar form to the definition
+   of velocity above, and is written in its most simple terms as:\\ 
+   \[
+     \bar{a} = \frac{v_2 - v_1}{t_2 - t_1}
+  \]
+   Because we may consider instantaneous velocity as a function of
+   time $v(t)$, we may instead choose to write this as:\\ 
+   \[
+     \bar{a} = \frac{v(t_2) - v(t_1)}{t_2 - t_1}
+  \]
+  Now we define the terms differently to more clearly apply the limit
+  to arrive at the derivative:\\
+  
+ \[
+   \begin{aligned}
+     t_1 &= t \text{, } & t_2= t + \Delta t  \\
+   \end{aligned}
+ \]
+ Now we may define the instantaneous acceleration $a$ to be the limit
+ of the instantaneous velocity when the $\Delta t \to 0$:
+ 
+ \begin{equation}\label{eq:defnacc}
+    a = \lim_{x\to0}\frac{v(t + \Delta t) - v(t) }{\Delta t} 
+    \iff a = \frac{d}{dt}v(t) \\
+  \end{equation}
+\newpage
+ \subsection{Notation}
+ As a simplification, we always take the initial time $t_{0}=0$ and define our
+ equations with the supposition that acceleration is constant. Thus we write:
+ 
+\[
+  \begin{aligned}
+    t &= t_f \\
+    t &= t + 0 = t - t_{0} = \Delta t
+  \end{aligned}
+\]
+ \begin{equation}
+   \boxed{    \Delta t = t \label{time}}
+ \end{equation}
+\[
+  \begin{aligned}
+    \Delta x &= \Delta x - x_{0} \\
+    \Delta v &= v - v_{0} \\
+    \bar{a} &= a = constant
+  \end{aligned}
+\]
+ \subsection{Deriving the first kinematic equation}
+ 
+ \subsubsection{Position $x$ as a function of $\bar{v}$}
+\[
+  \begin{aligned}
+    \bar{v} &= \frac{\Delta x}{\Delta t} \\
+    \bar{v} &= \frac{x-x_{0}}{t} \\ 
+    x &= x_{0}+\bar{v}t
+  \end{aligned}
+\]
+\subsubsection{Final Velocity $v$ as a function of time $t$ and acceleration
+$a=\bar{a}$}
+ 
+\[
+  \begin{aligned}
+    a &= \frac{\Delta v}{\Delta t} & t = \Delta t \\
+    a  &= \frac{v-v_{0}}{t}
+  \end{aligned}
+\]
+ \begin{equation}
+   v = v_{0} + at
+ \end{equation}
+
+ \subsubsection{Final Velocity $v$ as a function of distance $x$ and
+ acceleration $a = \bar{a}$}
+ Starting with
+ \[
+     v = v_{0}+at \\
+\]
+Rearranging for $t$
+\[
+  \begin{aligned}
+    t &= \frac{v-v_{0}}{a}\\ 
+  \end{aligned}
+\]
+By definition $\bar{v}$ 
+\[
+    \bar{v} = \frac{v_{0}+v}{2} 
+\]
+Now substitute into equation for position
+ 
+\[
+  \begin{aligned}
+    x &= x_{0} + \bar{v}t \\
+    x &= x_{0} + \frac{v_{0}+v}{2}*\frac{v - v_{0}}{a} \\
+    x &= x_{0} + \frac{v^2-v_{0}^2}{2a}
+  \end{aligned}
+\]
+Solving for $v^2$
+ \[
+    v^2 = v_{0}^2 + 2a(x-x_{0})
+\]
+Or
+ \[
+   \boxed{    v^2 = v_{0}^2 + 2a \Delta x}
+\]
+ \subsubsection{Deriving position $x$ as a function of velocity $v$, time $t$,
+ and acceleration $a = \bar{a}$}
+ We begin with position as a function of $\bar{v}$:
+ \[
+   x = x_{0} + \bar{v}t
+\]
+We know we want $v$, $t$, and $a$, so we start with the equation for $v$ and
+rearrange to substitute $\bar{v}$:
+ 
+\[
+  \begin{aligned}
+    v &= v_{0} + at \\
+      & add\ v_{0}\ to\ both\ sides \\
+    v+v_{0} &= 2v_{0} + at \\
+    \frac{v+v_{0}}{2} &= v_{0} + \frac{at}{2} \\
+                      & substitute\ \bar{v} = \frac{v+v_{0}}{2}\\ 
+    \bar{v} &= v_{0} + \frac{1}{2}at \\
+            & substite\\
+            x &= x_{0} + (v_{0}+\frac{1}{2}at)t\\ 
+  \end{aligned}
+\]
+ \[
+   \boxed{                x = x_{0} + v_{0}t + \frac{1}{2}at^2}
+\]
+ \subsection{Kinematic Equations from Integral Calculus}
+ \subsubsection{$v(t) = v_{0}+at$ by Integration}
+ We defined the relationship between acceleration and velocity in
+ (\ref{eq:defnacc}) as:
+ \[
+     a = \frac{d}{dt}v(t)
+\] 
+Switching sides, as we are more interested in $v(t)$, and rewriting $a$ as a
+function of time $a(t)$:
+\[
+  \begin{aligned}
+    \frac{d}{dt}v(t) &= a(t) \\
+    \int \frac{d}{dt}v(t) \,dt &= \int a(t) \,dt + C_{1} \\
+  \end{aligned}
+\]
+\begin{equation}\label{eq:vintegral}
+  v(t) = \int a(t) \,dt + C_{1} \\ 
+\end{equation}
+ 
+For constant acceleration in (\ref{eq:vintegral}):
+ 
+\[
+  \begin{aligned}
+    v(t) &= \int a \,dt = at + C_{1}\\
+    v(0) = v_{0} &= a(0) + C_{1}\\ 
+    v_{0} &= C_{1}\\ 
+  \end{aligned}
+\]
+\begin{equation}\label{eq:vtrule}
+  \therefore \, \boxed{v(t) = v_{0}+at}
+\end{equation}
+
+ \subsubsection{$x(t)$ by Integration}
+ We defined the function of position in (\ref{eq:defnv}) as:
+\[
+  \begin{aligned}
+    \frac{d}{dt}x(t) &= v(t) \\
+    \int \frac{d}{dt}x(t) \,dt &= \int v(t) \,dt \\
+  \end{aligned}
+\]
+\begin{equation}\label{eq:xintegral}
+  x(t) = \int v(t) \,dt + C_{2} \\ 
+\end{equation}
+Substite equation for $v(t)$ from (\ref{eq:vtrule}) in (\ref{eq:xintegral})
+ 
+\[
+  \begin{aligned}
+    x(t) &= \int v_{0}+at \,dt \\
+    x(t) &= v_{0}t + \frac{1}{2}at^2 + C_{2} \\
+    x(0) = x_{0} &= v_{0}(0) + \frac{1}{2}a(0)^2 + C_{2}\\
+    x_{0} &= C_{2} \\
+  \end{aligned}
+\]
+\begin{equation}
+  \therefore \, \boxed{    x(t) = x_{0}+v_{0}t + \frac{1}{2}at^2}
+\end{equation}
+Example on pg 136 of the textbook.
+
+ \section{Projectile Motion Derivations}
+ Motion of an object when:
+ 
+\[
+  \begin{aligned}
+    a_{x} &= 0 \\
+  \end{aligned}
+\]
+ \subsection{Defining vector quantities of motion for two dimensional vectors}
+  Where $x(t)$ and $y(t)$ are defined for two dimensional position vector
+  $\vec{r}(t)$ and similarly $v_{x}(t)$ and $v_{y}(t)$ are defined for velocity
+  vector $\vec{v}(t)$, while $\vec{a}$ is similar but with $a_x=0$:
+  
+ \[
+   \begin{aligned}
+    \vec{r}(t) &= x(t)\hat{i} + y(t)\hat{j} \\ 
+    \vec{v}(t) &= v_x(t)\hat{i} + v_y(t)\hat{j}\\
+    \vec{a}(t) &= 0\hat{i} + a_y(t)\hat{j}
+   \end{aligned}
+ \]
+ \subsection{Rewriting kinematic equations for x and y directions where $a_x=0$}
+\[
+  \begin{aligned}
+    x(t) &= x_{0} + \bar{v}_xt \\
+    v_{x}(t) &= v_{0,x} \\
+    x(t) &= x_{0} + v_{0,x} t + \frac{1}{2}a_xt^2 \\ 
+    v_{x}^2(t) &=  v_{0,x}^2t\\
+              &\ \\
+    y(t) &= y_{0} + \bar{v}_yt \\
+    v_{y}(t) &= v_{0,y} + a_{y}t^2 \\
+    y(t) &= y_{0} + v_{0,y} t + \frac{1}{2}a_yt^2 \\
+    v_{y}^2(t) &= v_{0,y}^2 + 2a_{y}(y-y_{0}) 
+  \end{aligned}
+\]
+ 
+ \subsection{Derivations of Projectile Motion Equations}
+ \subsubsection{Maximum height $h$}
+ Requires knowing two of three: $y$, $v_{0,y}^2$, $g$\\
+ For $v_{y}=0$, $y_{0}=0$, $a_{y} = -g$:
+\[
+  \begin{aligned}
+    v_{y}^2 &= v_{0,y}^2 + 2a_{y}(y - y_{0}) \\
+    0 &= v_{0,y}^2 + 2(-g)(y - 0) \\
+    0 &= v_{0,y}^2 - 2gy
+  \end{aligned}
+\]
+\begin{equation}\label{eq:projh}
+  \therefore \, \boxed{y = \frac{v_{0,y}^2}{2g}}
+\end{equation}
+
+ \subsubsection{Direction of velocity $\theta_v$}
+ The direction of velocity does not need to be derived, as it relies on the
+ triangle formed by $v_x$ and $v_y$:
+ \begin{equation}\label{eq:launchangle}
+    \theta = \tan^-1 \bigg( \frac{v_y}{v_x} \bigg)
+ \end{equation}
+ \subsubsection{Time of Flight $T_{tof}$}
+ For $y=y_{0}$, $a_{y} = -g$:
+ 
+\[
+  \begin{aligned}
+    y - y_{0} &= v_{0,y}t + \frac{1}{2}a_{y}t^2 \\
+    0 &= v_{0,y}t + \frac{1}{2}(-g)t^2 \\
+    0 &= v_{0,y}t - \frac{1}{2}gt^2 & v_{0,y} = \sin(\theta_{0})v_{0}\\
+    0 &= \sin(\theta_0)v_{0}t -\frac{1}{2}gt^2 \\
+    0 &= t \bigg( \sin(\theta_0)v_{0} -\frac{1}{2}gt \bigg) \\
+    0 &= \sin(\theta_{0}) - \frac{1}{2}gt \\
+    \frac{1}{2}gt &= \sin(\theta_{0}) \\
+    t &= \frac{2\sin(\theta_{0})}{g} \\
+  \end{aligned}
+\]
+\begin{equation}\label{eq:tof}
+   \boxed{    T_{tof} = \frac{2\sin(\theta_{0})}{g} \\}
+ \end{equation}
+ \subsubsection{Trajectory $y$ as a function of $x$ without time $t$}
+ Need three of four: $y$, $v_{0}$, $\theta_{0}$, $x$
+ For $a = -g$
+ \[
+    x = v_{0,x}t
+\] 
+Solving for $t$:
+ 
+\[
+  \begin{aligned}
+    t &= \frac{x}{v_{0,x}} \\
+    t &= \frac{x}{\cos(\theta_{0})v_{0}} \\
+  \end{aligned}
+\]
+$y$-position:
+ 
+\[
+  \begin{aligned}
+    y &= v_{0,y}t + \frac{1}{2}at^2
+    y &= v_{0}\sin(\theta_{0})t - \frac{1}{2}gt^2 \\
+  \end{aligned}
+\]
+Substitute $t$:
+ 
+\[
+  \begin{aligned}
+    y &= v_{0}\sin(\theta_{0}) \bigg( \frac{x}{\cos(\theta_{0})v_{0}} \bigg) -
+    \frac{1}{2}g \bigg( \frac{x}{\cos(\theta_{0})v_{0}} \bigg)^2 \\
+  \end{aligned}
+\]
+\begin{equation}\label{eq:trajectory}
+  \boxed{    y = \tan(\theta_{0})x - x^2 \bigg( \frac{g}{2(v_{0} \cos\theta_{0} )^2} \bigg)}
+\end{equation}
+ \subsubsection{Range}
+ Starting with trajectory equation (\ref{eq:trajectory}) where $y=0$:
+ 
+\[
+  \begin{aligned}
+    0 &= \tan(\theta_{0})x - x^2 \bigg( \frac{g}{2(v_{0} \cos\theta_{0} )^2} \bigg) \\
+    x^2 \bigg( \frac{g}{2(v_{0} \cos\theta_{0} )^2} \bigg) &=
+    \tan(\theta_{0})x\\
+    x  &= \tan(\theta_{0}) \bigg( \frac{2(v_{0}\cos(\theta_{0})^2)}{g} \bigg) \\
+    x &= \frac{v_{0}^2 2\sin(\theta_{0})\cos(\theta_{0})}{g}\\ 
+  \end{aligned}
+\]
+  \begin{equation}\label{eq:range}
+    \boxed{    x = R = \frac{v_{0}^2 \sin(2\theta_{0})}{g} }
+  \end{equation}
+
+\end{document}
