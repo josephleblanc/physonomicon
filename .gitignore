@@ -14,3 +14,6 @@
 
 ## vimtex or zathura? symbolic linking
 *.synctex.gz
+
+## latexmk
+.fdb_latexmk
